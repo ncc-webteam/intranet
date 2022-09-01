@@ -1,3 +1,88 @@
+@import "bootstrap/bootstrap";
+
+$focus-colour: #ffdd00;
+$focus-text-colour: #0b0c0c;
+
+$link-colour: #4840f3;
+$link-colour-hover: darken(#4840f3, 10%);
+
+$object-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+$object-shadow-hover: 0px 5px 12px rgba(0, 0, 0, 0.25);
+
+@mixin ani {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
+}
+
+@import "components/_header";
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Mulish", sans-serif;
+  background-color: white;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+}
+
 p {
-  color: red;
+  font-size: 1.125rem;
+  color: $dark;
+}
+.lead,
+.lead * {
+  font-weight: 600;
+  font-size: 1.375rem;
+}
+
+a {
+  font-size: 1.125rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: $link-colour;
+  &:hover {
+    text-decoration: underline;
+    color: $link-colour-hover;
+  }
+  &:focus {
+    color: $focus-text-colour;
+    background-color: $focus-colour;
+    text-decoration: underline;
+    outline: none;
+  }
+}
+
+.btn-check:checked + .btn-primary:focus,
+.btn-check:active + .btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.btn-check:checked + .btn-outline-dark:focus,
+.btn-check:active + .btn-outline-dark:focus,
+.btn-outline-dark:active:focus,
+.btn-outline-dark.active:focus,
+.btn-outline-dark.dropdown-toggle.show:focus {
+  box-shadow: none;
 }
