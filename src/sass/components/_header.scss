@@ -37,10 +37,12 @@ header {
   background-color: #333;
 
   .top-section {
+    max-width: 1480px;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     padding: 8px 16px;
+    margin: auto;
 
     @include media-breakpoint-down(lg) {
       justify-content: stretch;
@@ -169,12 +171,14 @@ header {
       padding: 0px;
       margin: 0px;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: start;
     }
     li a {
       display: inline-block;
       padding: 8px 8px;
       color: white;
+      font-size: 1rem;
+      margin-right: 10px;
 
       &:hover {
         color: white;
@@ -182,6 +186,18 @@ header {
       &:focus {
         color: $focus-text-colour;
       }
+    }
+  }
+
+  .account-btn-wrapper {
+    position: absolute;
+    right: 15px;
+
+    @include media-breakpoint-down(xxl) {
+      position: static;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-left: auto;
     }
   }
 
@@ -227,10 +243,6 @@ header {
       }
     }
 
-    @include media-breakpoint-down(sm) {
-      margin-left: auto;
-    }
-
     &:hover {
       background-color: $dark;
     }
@@ -249,8 +261,30 @@ header {
   .navbar {
     background-color: white;
     padding: 8px 16px;
-    .nav-link {
+    border-bottom: solid #ebebeb 1px;
+    @include media-breakpoint-down(xxl) {
+      padding: 8px 0px;
+    }
+    @include media-breakpoint-down(lg) {
+      border-bottom: none;
+    }
+    .fulltainer {
+      max-width: 1480px;
+      margin: auto;
+      padding: 0px 8px;
+    }
+    .navbar-nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .nav-item .nav-link {
       color: $dark;
+      font-size: 1rem;
+
+      @include media-breakpoint-down(xl) {
+        font-size: 0.875rem;
+        padding: 8px 0px;
+      }
 
       &:hover {
         color: $dark;
